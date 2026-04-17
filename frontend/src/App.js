@@ -8,7 +8,7 @@ export default function App(){
   const click=async(v)=>{
     if(v==='C'){setExpr('');setResult('');return;}
     if(v==='='){
-      const res=await fetch('http://127.0.0.1:8000/calculate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({expression:expr})});
+      const res=await fetch('https://graphical-calculator-api.onrender.com/calculate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({expression:expr})});
       const data=await res.json();
       setResult(data.result ?? data.error);
       return;
